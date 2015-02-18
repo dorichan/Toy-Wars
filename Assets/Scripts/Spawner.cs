@@ -7,6 +7,19 @@ public class Spawner : MonoBehaviour
 	public ObjectCache[] caches;
 	public Dictionary<GameObject, bool> activeCachedObjects;
 
+	void Start ()
+	{
+		spawner = this;
+		int amount = 0;
+		
+		for(int i = 0; i < caches.Length; i++) {
+			caches[i].Initialize();
+			amount += caches[i].cacheSize;
+		}
+		
+		activeCachedObjects = new Dictionary<GameObject, bool> ();
+	}
+
 	[System.Serializable]
 	public class ObjectCache 
 	{
@@ -84,18 +97,5 @@ public class Spawner : MonoBehaviour
 		} else {
 			objectToDestroy.SetActive(false);
 		}
-	}
-
-	void Awake ()
-	{
-		spawner = this;
-		int amount = 0;
-
-		for(int i = 0; i < caches.Length; i++) {
-			caches[i].Initialize();
-			amount += caches[i].cacheSize;
-		}
-
-		activeCachedObjects = new Dictionary<GameObject, bool> ();
 	}
 }

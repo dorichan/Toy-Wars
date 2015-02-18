@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{CD75D6E1-B285-0FA9-8203-1D94F1309736}</ProjectGuid>
+	<ProjectGuid>{266E1D9E-F343-02CD-CA62-9DA9A0F13922}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -39,40 +39,34 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>E:/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>E:/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\AIBehaviour.cs" />
-     <Compile Include="Assets\Scripts\AIMotor.cs" />
-     <Compile Include="Assets\Scripts\AutoFire.cs" />
-     <Compile Include="Assets\Scripts\BlueEnemy.cs" />
-     <Compile Include="Assets\Scripts\Bullet.cs" />
      <Compile Include="Assets\Scripts\CameraMovement.cs" />
      <Compile Include="Assets\Scripts\CameraShake.cs" />
-     <Compile Include="Assets\Scripts\CaptureBlueCastle.cs" />
-     <Compile Include="Assets\Scripts\CaptureRedCastle.cs" />
+     <Compile Include="Assets\Scripts\CaptureCastle.cs" />
      <Compile Include="Assets\Scripts\CreditsMenu.cs" />
      <Compile Include="Assets\Scripts\CursorBehaviour.cs" />
-     <Compile Include="Assets\Scripts\FloatingHealth.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Health.cs" />
-     <Compile Include="Assets\Scripts\ListenerPattern.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\MenuRobot.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />
-     <Compile Include="Assets\Scripts\StateMachine.cs" />
+     <Compile Include="Assets\Scripts\ToyAI.cs" />
+     <Compile Include="Assets\Scripts\ToyAutoEnemy.cs" />
+     <Compile Include="Assets\Scripts\ToyAutoFire.cs" />
+     <Compile Include="Assets\Scripts\ToyMovement.cs" />
      <Compile Include="Assets\Scripts\UserInterface.cs" />
-     <Compile Include="Assets\Scripts\Waypoint.cs" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-BasicOutline.shader" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-LightedOutline.shader" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Lighted.shader" />
  <Reference Include="UnityEngine.UI">
- <HintPath>E:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

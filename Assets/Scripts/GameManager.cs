@@ -1,17 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour 
 {
-	private AutoFire autofire;
-
 	public GameObject robotPrefab;
 	public GameObject floaterPrefab;
 	public Transform redSpawnPoint;
 	public Transform blueSpawnPoint;
-
-	public GUIText redtext;
-	public GUIText bluetext;
+	
 	public int redscore;
 	public int bluescore;
 
@@ -44,7 +41,6 @@ public class GameManager : MonoBehaviour
 
 		redscore = 0;
 		bluescore = 0;
-		UpdateScore();
 
 		AudioSource[] aSource = GetComponents<AudioSource>();
 		winGame = aSource[0];
@@ -110,21 +106,13 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	void UpdateScore() 
-	{
-		redtext.text = "Red Team: " + redscore;
-		bluetext.text = "Blue Team: " + bluescore;
-	}
-
 	public void AddRedScore (int newScoreValue)
 	{
 		redscore += newScoreValue;
-		UpdateScore();
 	}
 	
 	public void AddBlueScore (int newScoreValue)
 	{
 		bluescore += newScoreValue;
-		UpdateScore();
 	}
 }

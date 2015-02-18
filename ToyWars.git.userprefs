@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ToyMovement.cs">
+    <Files>
+      <File FileName="Assets\Scripts\UserInterface.cs" Line="33" Column="51" />
+      <File FileName="Assets\Scripts\ToyAI.cs" Line="46" Column="4" />
+      <File FileName="Assets\Scripts\ToyMovement.cs" Line="24" Column="20" />
+      <File FileName="Assets\Scripts\CursorBehaviour.cs" Line="45" Column="18" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
