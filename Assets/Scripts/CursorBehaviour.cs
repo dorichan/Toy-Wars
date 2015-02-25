@@ -7,13 +7,7 @@ public class CursorBehaviour : MonoBehaviour
 	private float cTimer;
 	public bool isActive;
 	private bool startCTimer;
-	private ToyAI toyAI;
-
-	void Awake()
-	{
-		toyAI = GetComponent<ToyAI>();
-	}
-
+	
 	void Start()
 	{
 		speed = 25.0f;

@@ -26,24 +26,27 @@ public class UserInterface : MonoBehaviour
 	{
 		if (gameInProgress) {		
 			if (Input.GetMouseButtonDown(0)) {
+				Debug.Log ("LMB");
 				RaycastHit hit = new RaycastHit ();
 				selectionRay = camera.ScreenPointToRay (Input.mousePosition);
 				cursor.GetComponent<CursorBehaviour>().isActive = true;
 
 				if (Physics.Raycast (selectionRay, out hit)) {
-					cursor.transform.position = hit.point;
-					foreach (var r in rList) {
-						r.GetComponent<ToyAI>().target = cursor.transform;
+					if (hit.transform.gameObject.tag == "Clickable") {
+						cursor.transform.position = hit.point;
+						foreach (var r in rList) {
+							r.GetComponent<ToyAI>().target = cursor.transform;
+						}
 					}
 				}
 			}
 
 			if (Input.GetMouseButtonDown(1)) {
+				Debug.Log ("RMB");
 				RaycastHit hit = new RaycastHit();
 				attackRay = camera.ScreenPointToRay (Input.mousePosition);
 					
 				if (Physics.Raycast (attackRay, out hit)) {
-					cursor.transform.position = hit.point;
 					if (bList.Contains (hit.transform.gameObject)) {
 						foreach (var r in rList) {
 							r.GetComponent<ToyAI>().enemy = hit.transform.gameObject;

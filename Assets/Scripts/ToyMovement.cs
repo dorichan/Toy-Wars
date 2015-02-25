@@ -40,6 +40,10 @@ public class ToyMovement : MonoBehaviour
 				speed = 5.0f;
 			}
 
+			if(distance.magnitude < 4.0f) {
+				thisToyAI.currentState = ToyAI.State.Idle;
+			}
+
 			if (isAttacking) {
 				if(distance.magnitude > attackDistance) {
 					speed = 8.0f;
