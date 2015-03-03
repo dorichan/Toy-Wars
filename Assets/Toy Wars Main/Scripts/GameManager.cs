@@ -8,30 +8,30 @@ public class GameManager : MonoBehaviour
 	public GameObject floaterPrefab;
 	public Transform redSpawnPoint;
 	public Transform blueSpawnPoint;
-	
+
 	public int redscore;
 	public int bluescore;
+	public int numRobots;
+	public int numFloaters;
+	private int counter;
+	private int maxRobots;
+	private int maxFloaters;
 
-	private int counter = 0;
-	private int maxRobots = 5;
-	public int numRobots = 0;
-	private int maxFloaters = 5;
-	public int numFloaters = 0;
-	private bool isSpawn = false;
-	private bool isOver = false;
-	public bool newGame = false;
-
+	public bool newGame;
+	private bool isSpawn;
+	private bool isOver;
+	
 	public GUITexture redWinTex;
 	public GUITexture blueWinTex;
-
 	public AudioSource winGame;
 	public AudioSource battleGame;
-
+	public AudioSource[] aSource;
 	private UserInterface ui;
 
 	void Awake()
 	{
 		ui = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<UserInterface>();
+		aSource = GetComponents<AudioSource>();
 	}
 	
 	void Start()
@@ -41,12 +41,18 @@ public class GameManager : MonoBehaviour
 
 		redscore = 0;
 		bluescore = 0;
+		counter = 0;
+		maxRobots = 5;
+		maxFloaters = 5;
+		numRobots = 0;
+		numFloaters = 0;
 
-		AudioSource[] aSource = GetComponents<AudioSource>();
+		isSpawn = false;
+		isOver = false;
+		newGame = false;
+
 		winGame = aSource[0];
 		battleGame = aSource[1];
-
-//		battleGame.Play ();
 	}
 
 	void Update()
@@ -61,12 +67,12 @@ public class GameManager : MonoBehaviour
 		}
 
 		if(isSpawn == true && numRobots < maxRobots) {
-			Spawner.Spawn (robotPrefab, redSpawnPoint.position, redSpawnPoint.rotation);
+			GameObject robots = Instantiate(robotPrefab, redSpawnPoint.position, redSpawnPoint.rotation) as GameObject;
 			numRobots += 1;
 		}
 
 		if(isSpawn == true && numFloaters < maxFloaters) {
-			Spawner.Spawn (floaterPrefab, blueSpawnPoint.position, blueSpawnPoint.rotation);
+			GameObject floaters = Instantiate(floaterPrefab, blueSpawnPoint.position, blueSpawnPoint.rotation) as GameObject;
 			numFloaters += 1;
 		}
 
@@ -108,11 +114,15 @@ public class GameManager : MonoBehaviour
 
 	public void AddRedScore (int newScoreValue)
 	{
-		redscore += newScoreValue;
+		if (redscore <= 2000) {
+			redscore += newScoreValue;
+		}
 	}
 	
 	public void AddBlueScore (int newScoreValue)
 	{
-		bluescore += newScoreValue;
+		if (bluescore <= 2000) {
+			bluescore += newScoreValue;
+		}
 	}
 }

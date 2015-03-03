@@ -16,7 +16,8 @@ public class ToyAutoFire : MonoBehaviour
 	void Update()
 	{
 		if (ta.enemy != null) {
-			Debug.Log("Pew Pew Pew!");
+			Debug.Log (this.gameObject.name + " sees target!");
+
 		}
 	}
 }
