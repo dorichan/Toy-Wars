@@ -1,19 +1,7 @@
-Base path: /Applications/Unity/Unity.app/Contents
-Pipe name: \\.\pipe\UnityShaderCompiler-1--1598512684
+Base path: E:/Unity/Editor/Data
+Pipe name: \\.\pipe\UnityShaderCompiler-1-5964
 Cmd: getPlatforms
 Cmd: compileSnippet
-  api=0 type=0 insize=1135 outsize=547 kw= ok=1
+  api=1 type=0 insize=4808 outsize=719 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
 Cmd: compileSnippet
-  api=0 type=1 insize=1135 outsize=333 kw= ok=1
-Cmd: compileSnippet
-  api=0 type=0 insize=867 outsize=635 kw= ok=1
-Cmd: compileSnippet
-  api=0 type=1 insize=867 outsize=84 kw= ok=1
-Cmd: compileSnippet
-  api=0 type=0 insize=4808 outsize=919 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
-Cmd: compileSnippet
-  api=0 type=1 insize=4808 outsize=445 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
-Cmd: compileSnippet
-  api=0 type=0 insize=2847 outsize=560 kw=DIRECTIONAL ok=1
-Cmd: compileSnippet
-  api=0 type=1 insize=2847 outsize=428 kw=DIRECTIONAL ok=1
+  api=1 type=1 insize=4808 outsize=404 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1

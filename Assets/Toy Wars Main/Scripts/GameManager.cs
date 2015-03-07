@@ -53,6 +53,8 @@ public class GameManager : MonoBehaviour
 
 		winGame = aSource[0];
 		battleGame = aSource[1];
+
+		battleGame.Play ();
 	}
 
 	void Update()
@@ -91,23 +93,23 @@ public class GameManager : MonoBehaviour
 		if(bluescore >= 2000) {
 			blueWinTex.enabled = true;
 			Time.timeScale = 0;
-//			battleGame.Stop ();
+			battleGame.Stop ();
 			isOver = true;
 		}
 		
 		if(redscore >= 2000) {
 			redWinTex.enabled = true;
 			Time.timeScale = 0;
-//			battleGame.Stop ();
+			battleGame.Stop ();
 			isOver = true;
 		}
 		
 		if(isOver) {
-//			winGame.Play ();
+			winGame.Play ();
 		}
 
 		if(newGame) {
-//			battleGame.Play ();
+			battleGame.Play ();
 			Time.timeScale = 1;
 		}
 	}

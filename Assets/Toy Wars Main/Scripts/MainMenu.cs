@@ -22,7 +22,7 @@ public class MainMenu : MonoBehaviour {
 		GUI.Box (new Rect (240, 570, 320, 260), "");
 		GUI.Label (new Rect (250, 580, 300, 60), "Toy Wars");
 		if (GUI.Button (new Rect (250, 650, 150, 50), "Play")) {
-			Application.LoadLevel ("level_02");
+			Application.LoadLevel ("level_01");
 		}
 		if (GUI.Button (new Rect (250, 710, 150, 50), "Credits")) {
 			Application.LoadLevel ("credits");
