@@ -4,20 +4,21 @@ using System.Collections.Generic;
 
 public class ToyAutoFire : MonoBehaviour 
 {
-	public bool isAttacking;
+	private GameManager gm;
 	private ToyAI ta;
 
-	void Start()
+	void Awake()
 	{
-		isAttacking = false;
+		gm = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ();
 		ta = GetComponent<ToyAI> ();
 	}
 
-	void Update()
+	public void Fire()
 	{
-		if (ta.enemy != null) {
-			Debug.Log (this.gameObject.name + " sees target!");
-
+		if(ta.enemy != null) {
+			gm.Shoot (ta.enemy.transform.position);
 		}
 	}
+
+
 }

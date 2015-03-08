@@ -28,6 +28,11 @@ public class GameManager : MonoBehaviour
 	public AudioSource[] aSource;
 	private UserInterface ui;
 
+	public GameObject laserPrefab;
+	public GameObject[] laserCache;
+	private int activeObj;
+	private int maxLaser;
+
 	void Awake()
 	{
 		ui = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<UserInterface>();
@@ -55,6 +60,16 @@ public class GameManager : MonoBehaviour
 		battleGame = aSource[1];
 
 		battleGame.Play ();
+
+		activeObj = 0;
+		maxLaser = 50;
+		
+		laserCache = new GameObject[maxLaser];
+		
+		for (int i = 0; i < laserCache.Length; i++) {
+			laserCache[i] = Instantiate(laserPrefab, transform.position, transform.rotation) as GameObject;
+			laserCache[i].SetActive (false);
+		}
 	}
 
 	void Update()
@@ -111,6 +126,17 @@ public class GameManager : MonoBehaviour
 		if(newGame) {
 			battleGame.Play ();
 			Time.timeScale = 1;
+		}
+	}
+
+	public void Shoot(Vector3 _target)
+	{
+		laserCache [0].GetComponent<LaserBehavior>().isShooting = true;
+		laserCache [0].SetActive (true);
+		activeObj += 1;
+		
+		if (activeObj > maxLaser) {
+			activeObj = 0;
 		}
 	}
 

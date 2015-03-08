@@ -47,11 +47,7 @@ public class ToyAI : MonoBehaviour
 
 		if (currentState == State.Attack) {
 			transform.LookAt(enemy.transform);
-			af.isAttacking = true;
-
-			if(enemy == null && inRange == null) {
-				af.isAttacking = false;
-			}
+			af.Fire ();
 		}
 
 		if (currentState == State.Move) {

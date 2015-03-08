@@ -53,6 +53,7 @@
      <Compile Include="Assets\Toy Wars Main\Scripts\CursorBehaviour.cs" />
      <Compile Include="Assets\Toy Wars Main\Scripts\GameManager.cs" />
      <Compile Include="Assets\Toy Wars Main\Scripts\Health.cs" />
+     <Compile Include="Assets\Toy Wars Main\Scripts\LaserBehavior.cs" />
      <Compile Include="Assets\Toy Wars Main\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Toy Wars Main\Scripts\MenuRobot.cs" />
      <Compile Include="Assets\Toy Wars Main\Scripts\ToyAI.cs" />
