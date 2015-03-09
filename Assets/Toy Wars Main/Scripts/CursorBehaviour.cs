@@ -7,7 +7,7 @@ public class CursorBehaviour : MonoBehaviour
 	private float cTimer;
 	public bool isActive;
 	private bool startCTimer;
-	
+
 	void Start()
 	{
 		speed = 25.0f;

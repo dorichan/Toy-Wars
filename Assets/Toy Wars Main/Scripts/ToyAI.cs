@@ -37,15 +37,16 @@ public class ToyAI : MonoBehaviour
 
 	void Update()
 	{
-		if (inRange.Capacity > 0 && enemy == null) { // TODO Throws argument out of range error 
-			FindClosestEnemy();
-		}
+		if (inRange.Capacity > 0 && enemy == null) {
+			FindClosestEnemy ();
+		} 
 
 		if (enemy != null) {
 			currentState = State.Attack;
 		}
 
 		if (currentState == State.Attack) {
+			tm.isAttacking = true;
 			transform.LookAt(enemy.transform);
 			af.DoShoot ();
 		}
@@ -53,12 +54,11 @@ public class ToyAI : MonoBehaviour
 		if (currentState == State.Move) {
 			if (target != null || enemy != null) {
 				tm.isMoving = true;
+				tm.isAttacking = false;
 			}
 		}
 
 		if (currentState == State.Idle) {
-			tm.isMoving = false;
-
 			if(target != null) {
 				currentState = State.Move;
 			}

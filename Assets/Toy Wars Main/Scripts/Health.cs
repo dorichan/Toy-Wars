@@ -23,6 +23,13 @@ public class Health : MonoBehaviour
 		isDead = false;
 	}
 
+	void Update()
+	{
+		if (health <= 0.0f) {
+			Dead ();
+		}
+	}
+	
 	public void OnDamage () 
 	{
 		health -= damage;
