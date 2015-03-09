@@ -28,10 +28,10 @@ public class GameManager : MonoBehaviour
 	public AudioSource[] aSource;
 	private UserInterface ui;
 
-	public GameObject laserPrefab;
-	public GameObject[] laserCache;
-	private int activeObj;
-	private int maxLaser;
+//	public GameObject laserPrefab;
+//	public GameObject[] laserCache;
+//	public int activeObj;
+//	private int maxLaser;
 
 	void Awake()
 	{
@@ -61,15 +61,16 @@ public class GameManager : MonoBehaviour
 
 		battleGame.Play ();
 
-		activeObj = 0;
-		maxLaser = 50;
-		
-		laserCache = new GameObject[maxLaser];
-		
-		for (int i = 0; i < laserCache.Length; i++) {
-			laserCache[i] = Instantiate(laserPrefab, transform.position, transform.rotation) as GameObject;
-			laserCache[i].SetActive (false);
-		}
+//		activeObj = 0;
+//		maxLaser = 50;
+//		
+//		laserCache = new GameObject[maxLaser];
+//		
+//		for (int i = 0; i < laserCache.Length; i++) {
+//			laserCache[i] = Instantiate(laserPrefab, transform.position, transform.rotation) as GameObject;
+//			laserCache[i].name = "LaserCache " + i;
+//			laserCache[i].SetActive (false);
+//		}
 	}
 
 	void Update()
@@ -129,16 +130,16 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	public void Shoot(Vector3 _target)
-	{
-		laserCache [0].GetComponent<LaserBehavior>().isShooting = true;
-		laserCache [0].SetActive (true);
-		activeObj += 1;
-		
-		if (activeObj > maxLaser) {
-			activeObj = 0;
-		}
-	}
+//	public void GetNextLaser(Vector3 pos, Quaternion rot)
+//	{
+//		laserCache [activeObj].transform.position = pos;
+//		laserCache [activeObj].transform.rotation = rot;
+//		laserCache [activeObj].SetActive (true);
+//		
+//		if (activeObj > maxLaser) {
+//			activeObj = 0;
+//		}
+//	}
 
 	public void AddRedScore (int newScoreValue)
 	{

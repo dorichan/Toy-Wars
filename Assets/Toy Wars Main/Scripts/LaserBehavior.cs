@@ -4,33 +4,32 @@ using System.Collections;
 public class LaserBehavior : MonoBehaviour 
 {
 	public float counter;
-	public bool isShooting;
 	private float speed;
 	private ToyAI ta;
+	private GameManager gm;
 
 	void Awake() 
 	{
 		ta = GetComponent<ToyAI> ();
+		gm = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ();
 	}
 
 	void Start()
 	{
 		counter = 0;
-		isShooting = true;
-		speed = 100.0f;
+		speed = 25.0f;
 	}
 
 	void Update()
 	{
-		if (isShooting) {
-			Debug.Log ("I'm alive!");
-			counter += 1.0f * Time.deltaTime;
+		counter += 1.0f * Time.deltaTime;
+		transform.position += transform.position * speed * Time.deltaTime;
 
-			if (counter >= 2.0f) {
-				transform.position += transform.position * speed * Time.deltaTime;
-			} else if (counter >= 3.0f) {
-				Destroy (this.gameObject);
-			}
+		if (counter >= 2.0f) {
+			counter = 0.0f;
+			Destroy(this.gameObject);
+//			gm.laserCache[gm.activeObj].SetActive (false);
+//			gm.activeObj += 1;
 		}
 	}
 }

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class ToyAutoFire : MonoBehaviour 
 {
+	public float counter;
+	public GameObject laserPrefab;
 	private GameManager gm;
 	private ToyAI ta;
 
@@ -13,10 +15,28 @@ public class ToyAutoFire : MonoBehaviour
 		ta = GetComponent<ToyAI> ();
 	}
 
-	public void Fire()
+	void Start()
 	{
-		if(ta.enemy != null) {
-			gm.Shoot (ta.enemy.transform.position);
+		counter = 0.0f;
+
+		if (laserPrefab == null) {
+			laserPrefab = GameObject.FindGameObjectWithTag("Laser");
+		}
+	}
+
+	public void DoShoot()
+	{
+		if(ta.enemy != null) { 
+//			gm.GetNextLaser (transform.position, transform.rotation);
+
+			counter += 1.0f * Time.deltaTime;
+
+			if(counter >= 2.0f) {
+				GameObject laser = Instantiate(laserPrefab, transform.position, transform.rotation) as GameObject;
+			} 
+			if (counter >= 2.1f) {
+				counter = 0.0f;
+			}
 		}
 	}
 

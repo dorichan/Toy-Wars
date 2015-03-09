@@ -47,7 +47,7 @@ public class ToyAI : MonoBehaviour
 
 		if (currentState == State.Attack) {
 			transform.LookAt(enemy.transform);
-			af.Fire ();
+			af.DoShoot ();
 		}
 
 		if (currentState == State.Move) {
@@ -83,6 +83,7 @@ public class ToyAI : MonoBehaviour
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.tag == enemyTag) {
+			currentState = State.Attack;
 			inRange.Add (other.gameObject);
 		}
 	}
