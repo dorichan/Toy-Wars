@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
 	public bool newGame;
 	private bool isSpawn;
 	private bool isOver;
+	public bool redWin;
+	public bool blueWin;
 	
 	public GUITexture redWinTex;
 	public GUITexture blueWinTex;
@@ -27,14 +29,13 @@ public class GameManager : MonoBehaviour
 	public AudioSource battleGame;
 	public AudioSource[] aSource;
 	private UserInterface ui;
-
-//	public GameObject laserPrefab;
-//	public GameObject[] laserCache;
-//	public int activeObj;
-//	private int maxLaser;
+	private FlagBehavior bfb;
+	private FlagBehavior rfb;
 
 	void Awake()
 	{
+		bfb = GameObject.FindGameObjectWithTag ("BlueFlag").GetComponent<FlagBehavior> ();
+		rfb = GameObject.FindGameObjectWithTag ("RedFlag").GetComponent<FlagBehavior> ();
 		ui = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<UserInterface>();
 		aSource = GetComponents<AudioSource>();
 	}
@@ -55,22 +56,13 @@ public class GameManager : MonoBehaviour
 		isSpawn = false;
 		isOver = false;
 		newGame = false;
+		redWin = false;
+		blueWin = false;
 
 		winGame = aSource[0];
 		battleGame = aSource[1];
 
 		battleGame.Play ();
-
-//		activeObj = 0;
-//		maxLaser = 50;
-//		
-//		laserCache = new GameObject[maxLaser];
-//		
-//		for (int i = 0; i < laserCache.Length; i++) {
-//			laserCache[i] = Instantiate(laserPrefab, transform.position, transform.rotation) as GameObject;
-//			laserCache[i].name = "LaserCache " + i;
-//			laserCache[i].SetActive (false);
-//		}
 	}
 
 	void Update()
@@ -96,6 +88,7 @@ public class GameManager : MonoBehaviour
 
 		if(numRobots >= maxRobots) {
 			ui.gameInProgress = true;
+			isSpawn = false;
 		}
 
 		if(Input.GetKey (KeyCode.Escape)) {
@@ -106,14 +99,14 @@ public class GameManager : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		if(bluescore >= 2000) {
+		if(blueWin) {
 			blueWinTex.enabled = true;
 			Time.timeScale = 0;
 			battleGame.Stop ();
 			isOver = true;
 		}
 		
-		if(redscore >= 2000) {
+		if(redWin) {
 			redWinTex.enabled = true;
 			Time.timeScale = 0;
 			battleGame.Stop ();
@@ -130,28 +123,28 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-//	public void GetNextLaser(Vector3 pos, Quaternion rot)
-//	{
-//		laserCache [activeObj].transform.position = pos;
-//		laserCache [activeObj].transform.rotation = rot;
-//		laserCache [activeObj].SetActive (true);
-//		
-//		if (activeObj > maxLaser) {
-//			activeObj = 0;
-//		}
-//	}
-
 	public void AddRedScore (int newScoreValue)
 	{
 		if (redscore <= 2000) {
-			redscore += newScoreValue;
+			bfb.SendMessage("SetActive");
+
 		}
 	}
 	
 	public void AddBlueScore (int newScoreValue)
 	{
 		if (bluescore <= 2000) {
-			bluescore += newScoreValue;
+			rfb.SendMessage("SetActive");
 		}
+	}
+
+	public void StopRedScore()
+	{
+		rfb.SendMessage ("StopCapture");
+	}
+
+	public void StopBlueScore()
+	{
+		bfb.SendMessage ("StopCapture");
 	}
 }

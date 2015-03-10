@@ -29,10 +29,13 @@ public class LaserBehavior : MonoBehaviour
 		if (Physics.Raycast (transform.position, -Vector3.forward, out hit)) {
 			if(hit.transform) {
 				Health targetHealth = hit.transform.gameObject.GetComponent<Health>();
-				targetHealth.OnDamage();
 
-				Debug.Log (hit.transform.gameObject.name + " has been damaged and has " + 
-				           hit.transform.gameObject.GetComponent<Health>().health + " health.");
+				if(targetHealth) {
+					targetHealth.OnDamage();
+
+					Debug.Log (hit.transform.gameObject.name + " has been damaged and has " + 
+					           hit.transform.gameObject.GetComponent<Health>().health + " health.");
+				}
 
 			}
 		}

@@ -37,10 +37,10 @@ public class Health : MonoBehaviour
 
 	void Dead()
 	{
-		if(gameObject == GameObject.FindWithTag("Robot")) {
+		if(gameObject == GameObject.FindWithTag("Red")) {
 			gm.GetComponent<GameManager>().numRobots -= 1;
 		}
-		if(gameObject == GameObject.FindWithTag("Floater")) {
+		if(gameObject == GameObject.FindWithTag("Blue")) {
 			gm.GetComponent<GameManager>().numFloaters -= 1;
 		}
 		Destroy (gameObject);

@@ -20,4 +20,14 @@ public class CaptureCastle : MonoBehaviour
 			gm.AddRedScore(scoreValue);
 		}
 	}
+
+	void OnTriggerExit(Collider other)
+	{
+		if(other.gameObject == GameObject.FindWithTag ("Blue") && this.gameObject.tag == "RedCastle") {
+			gm.StopBlueScore();
+		}
+		if(other.gameObject == GameObject.FindWithTag ("Red") && this.gameObject.tag == "BlueCastle") {
+			gm.StopRedScore();
+		}
+	}
 }

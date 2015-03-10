@@ -1,10 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Toy Wars Main/Scripts/UserInterface.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Toy Wars Main/Scripts/FlagBehavior.cs">
     <Files>
-      <File FileName="Assets/Toy Wars Main/Scripts/LaserBehavior.cs" Line="30" Column="23" />
-      <File FileName="Assets/Toy Wars Main/Scripts/ToyAutoFire.cs" Line="69" Column="4" />
-      <File FileName="Assets/Toy Wars Main/Scripts/UserInterface.cs" Line="43" Column="38" />
+      <File FileName="Assets/Toy Wars Main/Scripts/FlagBehavior.cs" Line="25" Column="17" />
+      <File FileName="Assets/Toy Wars Main/Scripts/GameManager.cs" Line="148" Column="32" />
+      <File FileName="Assets/Toy Wars Main/Scripts/CaptureCastle.cs" Line="30" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
