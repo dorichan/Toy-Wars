@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Health : MonoBehaviour 
 {
+	public ParticleSystem explosion;
 	public float health;
 	public bool isDead;
 
@@ -13,13 +14,14 @@ public class Health : MonoBehaviour
 	void Awake()
 	{
 		gm = GameObject.FindGameObjectWithTag("GameManager");
+		explosion = transform.FindChild ("Explosion").gameObject.GetComponent<ParticleSystem> ();
 	}
 
  	void Start () 
 	{
-		maxHealth = 100.0f;
+		maxHealth = 250.0f;
 		health = maxHealth;
-		damage = 10.0f;
+		damage = 0.5f;
 		isDead = false;
 	}
 
@@ -32,11 +34,14 @@ public class Health : MonoBehaviour
 	
 	public void OnDamage () 
 	{
+		explosion.Play ();
 		health -= damage;
 	}
 
 	void Dead()
 	{
+		transform.rigidbody.velocity += transform.up * 5;
+
 		if(gameObject == GameObject.FindWithTag("Red")) {
 			gm.GetComponent<GameManager>().numRobots -= 1;
 		}

@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 	private int maxRobots;
 	private int maxFloaters;
 
+	public bool doSpawn;
 	public bool newGame;
 	private bool isSpawn;
 	private bool isOver;
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour
 	{
 		redWinTex.enabled = false;
 		blueWinTex.enabled = false;
+		doSpawn = true;
 
 		redscore = 0;
 		bluescore = 0;
@@ -67,33 +69,36 @@ public class GameManager : MonoBehaviour
 
 	void Update()
 	{
-		counter += 1;
-		if(counter > 60) {
-			isSpawn = true;
-			counter = 0;
-		}
-		else {
-			isSpawn = false;
-		}
+		if (doSpawn) {
+			counter += 1;
+			if(counter > 60) {
+				isSpawn = true;
+				counter = 0;
+			}
+			else {
+				isSpawn = false;
+			}
 
-		if(isSpawn == true && numRobots < maxRobots) {
-			GameObject robots = Instantiate(robotPrefab, redSpawnPoint.position, redSpawnPoint.rotation) as GameObject;
-			numRobots += 1;
-		}
+			if(isSpawn == true && numRobots < maxRobots) {
+				GameObject robots = Instantiate(robotPrefab, redSpawnPoint.position, redSpawnPoint.rotation) as GameObject;
+				numRobots += 1;
+			}
 
-		if(isSpawn == true && numFloaters < maxFloaters) {
-			GameObject floaters = Instantiate(floaterPrefab, blueSpawnPoint.position, blueSpawnPoint.rotation) as GameObject;
-			numFloaters += 1;
-		}
+			if(isSpawn == true && numFloaters < maxFloaters) {
+				GameObject floaters = Instantiate(floaterPrefab, blueSpawnPoint.position, blueSpawnPoint.rotation) as GameObject;
+				numFloaters += 1;
+			}
 
-		if(numRobots >= maxRobots) {
-			ui.gameInProgress = true;
-			isSpawn = false;
-		}
+			if(numRobots >= maxRobots) {
+				ui.gameInProgress = true;
+				isSpawn = false;
+				doSpawn = false;
+			}
 
-		if(Input.GetKey (KeyCode.Escape)) {
-			Application.LoadLevel("main_menu");
-			Time.timeScale = 1;
+			if(Input.GetKey (KeyCode.Escape)) {
+				Application.LoadLevel("main_menu");
+				Time.timeScale = 1;
+			}
 		}
 	}
 
