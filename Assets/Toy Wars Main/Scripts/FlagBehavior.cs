@@ -61,11 +61,11 @@ public class FlagBehavior : MonoBehaviour
 		index = 1;
 
 		if (this.gameObject.tag == "BlueFlag") {
-			renderer.material.color = Color.red;
+			GetComponent<Renderer>().material.color = Color.red;
 		}
 
 		if (this.gameObject.tag == "RedFlag") {
-			renderer.material.color = Color.blue;
+			GetComponent<Renderer>().material.color = Color.blue;
 		}
 	}
 

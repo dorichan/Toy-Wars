@@ -40,7 +40,7 @@ public class Health : MonoBehaviour
 
 	void Dead()
 	{
-		transform.rigidbody.velocity += transform.up * 5;
+		transform.GetComponent<Rigidbody>().velocity += transform.up * 5;
 
 		if(gameObject == GameObject.FindWithTag("Red")) {
 			gm.GetComponent<GameManager>().numRobots -= 1;

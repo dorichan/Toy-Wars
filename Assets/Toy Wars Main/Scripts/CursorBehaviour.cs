@@ -22,11 +22,11 @@ public class CursorBehaviour : MonoBehaviour
 		this.transform.Rotate(0.0f, rotate, 0.0f);
 
 		if(isActive) {
-			this.gameObject.transform.FindChild("Cursor").renderer.enabled = true;
+			this.gameObject.transform.FindChild("Cursor").GetComponent<Renderer>().enabled = true;
 			startCTimer = true;
 		}
 		if(!isActive) {
-			this.gameObject.transform.FindChild("Cursor").renderer.enabled = false;
+			this.gameObject.transform.FindChild("Cursor").GetComponent<Renderer>().enabled = false;
 		}
 
 		if(startCTimer) {

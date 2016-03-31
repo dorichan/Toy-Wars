@@ -7,7 +7,7 @@ public class CreditsMenu : MonoBehaviour
 
 	void Start()
 	{
-		guiText.text = "Credits\n" + " \n" +
+		GetComponent<GUIText>().text = "Credits\n" + " \n" +
 			"Made by \n" +
 			"\t-Dori Chan\n" +
 			"\t-for VG4430 Game Engine Scripting\n" +

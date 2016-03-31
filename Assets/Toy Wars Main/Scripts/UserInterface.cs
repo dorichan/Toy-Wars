@@ -29,7 +29,7 @@ public class UserInterface : MonoBehaviour
 				RaycastHit hit = new RaycastHit ();
 				int layerMask = 1 << 9;
 //				layerMask = ~layerMask;
-				selectionRay = camera.ScreenPointToRay (Input.mousePosition);
+				selectionRay = GetComponent<Camera>().ScreenPointToRay (Input.mousePosition);
 				cursor.GetComponent<CursorBehaviour>().isActive = true;
 			
 				if (Physics.Raycast (selectionRay, out hit, Mathf.Infinity, layerMask)) {
@@ -42,7 +42,7 @@ public class UserInterface : MonoBehaviour
 
 			if (Input.GetMouseButtonDown(1)) {
 				RaycastHit hit = new RaycastHit();
-				attackRay = camera.ScreenPointToRay (Input.mousePosition);
+				attackRay = GetComponent<Camera>().ScreenPointToRay (Input.mousePosition);
 					
 				if (Physics.Raycast (attackRay, out hit)) {
 					if (bList.Contains (hit.transform.gameObject)) {
